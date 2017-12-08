@@ -1,0 +1,39 @@
+{% extends 'subbase.html' %}
+
+{% block content %}
+    <div class="container" style="color: black">
+        <div class="col-md-8" style="margin-top: 50px">
+            <form class="form-horizontal" novalidate method="post" action="/editBanJi/">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="bName" class="col-sm-2 control-label">班级名称</label>
+                    <div class="col-sm-6">
+                        {{ form.bName }}{{ form.errors.bName.0 }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="bName" class="col-sm-2 control-label">选择讲师</label>
+                    <div class="col-sm-6">
+                        {{ form.banji2teacher }}{{ form.errors.banji2teacher.0 }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="bName" class="col-sm-2 control-label">选择班主任</label>
+                    <div class="col-sm-6">
+                        {{ form.banZhuRen }}{{ form.errors.banZhuRen.0 }}
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">添加老师</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

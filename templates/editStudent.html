@@ -1,0 +1,59 @@
+{% extends 'subbase.html' %}
+
+{% block content %}
+    <div class="container" style="color: black">
+        <div class="col-md-8" style="margin-top: 50px">
+            <form class="form-horizontal" novalidate method="post" action="/editStudent/?id={{ id }}">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="sName" class="col-sm-2 control-label">学生姓名</label>
+                    <div class="col-sm-6">
+                        {{ form.sName }}{{ form.errors.sName.0 }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="sAge" class="col-sm-2 control-label">学生年龄</label>
+                    <div class="col-sm-6">
+                        {{ form.sAge }}{{ form.errors.sAge.0 }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="sGender" class="col-sm-2 control-label">学生性别</label>
+                    <div class="col-sm-6">
+                        {{ form.sGender }}{{ form.errors.sGender.0 }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="sPhone" class="col-sm-2 control-label">学生手机号</label>
+                    <div class="col-sm-6">
+                        {{ form.sPhone }}{{ form.errors.sPhone.0 }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="joinDate" class="col-sm-2 control-label">学生入学时间</label>
+                    <div class="col-sm-6">
+                        {{ form.joinDate }}{{ form.errors.joinDate.0 }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="banJi" class="col-sm-2 control-label">学生班级</label>
+                    <div class="col-sm-6">
+                        {{ form.banJi }}{{ form.errors.banJi.0 }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">确认修改</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

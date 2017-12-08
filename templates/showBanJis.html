@@ -1,0 +1,50 @@
+{% extends 'subbase.html' %}
+
+{% block content %}
+    <div class="container" style="color: black">
+        <div class="col-md-8">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <td>班级</td>
+                    <td>讲师</td>
+                    <td>班主任</td>
+                    <td>操作</td>
+                </tr>
+                </thead>
+
+                <tbody>
+                {% for banJi in banJis %}
+                    <tr>
+                        <td>{{ banJi.bName }}</td>
+                        <td>
+                            {% for teacher in banJi.banji2teacher.all %}
+                                {% if teacher.teacher2user.role == "teacher" %}
+                                    {{ teacher.tName }}
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                        <td>
+                            {% for teacher in banJi.banji2teacher.all %}
+                                {% if teacher.teacher2user.role == "classAdmin" %}
+                                    {{ teacher.tName }}
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                        <td>
+                            <a href="/delBanJi/?id={{ banJi.bId }}">
+                                <button class="btn btn-danger">删除</button>
+                            </a>
+                            <a href="/editBanJi/?id={{ banJi.bId }}">
+                                <button class="btn btn-warning">编辑</button>
+                            </a> <a href="/banJiInfo/?id={{ banJi.bId }}">
+                            <button class="btn btn-danger">查看详细信息</button>
+                        </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'subbase.html' %}
+
+{% block content %}
+    <div class="container" style="color: black">
+        <div class="col-md-8">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <td>姓名</td>
+                    <td>年龄</td>
+                    <td>角色</td>
+                    <td>操作</td>
+                </tr>
+                </thead>
+
+                <tbody>
+                {% for teacher in teachers %}
+                    <tr>
+                        <td>{{ teacher.tName }}</td>
+                        <td>{{ teacher.tAge }}</td>
+                        <td>{{ teacher.teacher2user.role }}</td>
+                        <td>
+                            <a href="/delTeacher/?id={{ teacher.tId }}">
+                                <button class="btn btn-danger">删除</button>
+                            </a>
+                            <a href="/editTeacher/?id={{ teacher.tId }}">
+                                <button class="btn btn-warning">编辑</button>
+                            </a> <a href="/teacherInfo/?id={{ teacher.tId }}">
+                            <button class="btn btn-danger">查看详细信息</button>
+                        </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

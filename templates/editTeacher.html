@@ -1,0 +1,60 @@
+{% extends 'subbase.html' %}
+
+{% block content %}
+    <div class="container" style="color: black">
+        <div class="col-md-8" style="margin-top: 50px">
+            <form class="form-horizontal" novalidate method="post" action="/editTeacher/?id={{ tId }}">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="tName" class="col-sm-2 control-label">老师姓名</label>
+                    <div class="col-sm-6">
+                        {{ form.tName }}{{ form.errors.tName.0 }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="tAge" class="col-sm-2 control-label">老师年龄</label>
+                    <div class="col-sm-6">
+                        {{ form.tAge }}{{ form.errors.tAge.0 }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="tGender" class="col-sm-2 control-label">老师性别</label>
+                    <div class="col-sm-6">
+                        {{ form.tGender }}{{ form.errors.tGender.0 }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="tPhone" class="col-sm-2 control-label">老师手机号</label>
+                    <div class="col-sm-6">
+                        {{ form.tPhone }}{{ form.errors.tPhone.0 }}
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="salary" class="col-sm-2 control-label">老师薪资</label>
+                    <div class="col-sm-6">
+                        {{ form.salary }}{{ form.errors.salary.0 }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="teacher2user" class="col-sm-2 control-label">老师角色</label>
+                    <div class="col-sm-6">
+                        {{ form.teacher2user }}{{ form.errors.teacher2user.0 }}
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">确认修改</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'info.html' %}
+
+
+
+
+{% block panel %}
+
+
+    <div class="panel panel-default">
+        <!-- 用户姓名 -->
+        <div class="panel-heading">{{  user.tName  }}</div>
+        <!-- 用户信息列表 -->
+        <dl class="dl-horizontal">
+            <dt>你的年龄</dt>
+            <dd>{{ user.tAge }}</dd>
+            <dt>你的性别</dt>
+            <dd>{{ user.tGender }}</dd>
+            <dt>你的手机号</dt>
+            <dd>{{ user.tPhone }}</dd>
+            <dt>你的薪资</dt>
+            <dd>{{ user.salary }}</dd>
+        </dl>
+    </div>
+{% endblock %}

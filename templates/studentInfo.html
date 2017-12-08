@@ -1,0 +1,22 @@
+{% extends 'info.html' %}
+
+
+{% block panel %}
+    <div class="panel panel-default">
+        <!-- 用户姓名 -->
+        <div class="panel-heading">{{ student }}</div>
+        <!-- 用户信息列表 -->
+        <dl class="dl-horizontal">
+            <dt>{{ student }}的年龄</dt>
+            <dd>{{ student.sAge }}</dd>
+            <dt>{{ student }}的性别</dt>
+            <dd>{{ student.sGender }}</dd>
+            <dt>{{ student }}的手机号</dt>
+            <dd>{{ student.sPhone }}</dd>
+            <dt>{{ student }}的入学时间</dt>
+            <dd>{{ student.joinDate|date:"Y-m-d" }}</dd>
+            <dt>{{ student }}的班级</dt>
+            <dd>{{ student.banJi.bName }}</dd>
+        </dl>
+    </div>
+{% endblock %}
